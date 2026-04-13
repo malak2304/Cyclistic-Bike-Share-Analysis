@@ -27,6 +27,12 @@ In this stage, I focused on data sourcing and initial organization:
 * **Data Source:** 12 monthly CSV files (Jan 2025 - Dec 2025) provided by Motivate International Inc.
 * **Methodology:** Implemented the **Bronze Layer** (Raw Data) in SQL.
 * **Execution:** Used `BULK INSERT` to consolidate all files into a single "Source of Truth" while maintaining the original raw format for auditing.
+  
+> #### 💡 Why Consolidate into a Single Table?
+> Instead of analyzing 12 separate files, I merged them into one unified dataset to:
+> * **Enable Time-Series Analysis:** Comparing usage patterns across different months and seasons.
+> * **Ensure Statistical Significance:** Analyzing the full 5.5M+ records at once provides more accurate averages and trends.
+> * **Simplify Querying:** Performing complex joins and aggregations without the need for repetitive `UNION` operations.
 
 ### 3️⃣ Process (Refactoring & Silver Layer)
 This was the most intensive phase, where I applied a **Medallion Architecture** to move data from "Raw" to "Clean":
