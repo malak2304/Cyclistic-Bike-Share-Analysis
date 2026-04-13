@@ -72,6 +72,7 @@ This was the most intensive phase, where I applied a **Medallion Architecture** 
 ---
 
 ## 📂 Repository Structure
+```text
 ├── 📂 SQL-Scripts/
 │   ├── 01_Bronze_Layer_ETL.sql         # Data ingestion & consolidation
 │   └── 02_Silver_Layer.sql              # Cleaning, refactoring & audit
