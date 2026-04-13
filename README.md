@@ -72,11 +72,14 @@ This was the most intensive phase, where I applied a **Medallion Architecture** 
 ---
 
 ## 📂 Repository Structure
-```text
 ├── 📂 SQL-Scripts/
-│   ├── 01_Bronze_Layer_ETL.sql         # Raw data ingestion & loading
-│   └── 02_Silver_Layer.sql              # Data cleaning, refactoring & audit
+│   ├── 01_Bronze_Layer_ETL.sql         # Data ingestion & consolidation
+│   └── 02_Silver_Layer.sql              # Cleaning, refactoring & audit
+├── 📂 Python-Analysis/
+│   └── 03_Exploratory_Analysis.ipynb    # Statistical analysis & deep dive
+├── 📂 PowerBI-Dashboard/
+│   └── 04_Cyclistic_Dashboard.pbit     # Interactive visualization & insights
 ├── 📂 Documentation/
-│   └── Case_Study_Report.pdf           # Project findings & methodology report
-├── 📄 .gitignore                       # Files to be ignored by Git (CSV, etc.)
-└── 📄 README.md                        # Project overview & documentation
+│   └── Case_Study_Report.pdf           # Final business recommendations
+├── 📄 .gitignore
+└── 📄 README.md
