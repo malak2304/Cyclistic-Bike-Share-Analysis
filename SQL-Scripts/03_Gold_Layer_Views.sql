@@ -108,13 +108,12 @@ GO
 -- STEP 5: BIKE PREFERENCE (Classic vs Electric)
 -- ----------------------------------------------------------------------------
 CREATE OR ALTER VIEW v_Bike_Preferences AS
-select rideable_type, member_casual, count(ride_id) as number_of_bike_users
-from cyclistic.Silver_Trips_2025
-where rideable_type like 'Classic bike' 
-group by rideable_type, member_casual
-union all
-select rideable_type, member_casual, count(ride_id)  
-from cyclistic.Silver_Trips_2025
-where rideable_type like 'Electric bike' 
-group by rideable_type, member_casual;
+SELECT 
+    rideable_type, 
+    member_casual, 
+    COUNT(ride_id) AS number_of_bike_users
+FROM cyclistic.Silver_Trips_2025
+WHERE rideable_type IN ('Classic bike', 'Electric bike')
+GROUP BY rideable_type, member_casual;
 GO
+
