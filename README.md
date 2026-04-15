@@ -51,13 +51,26 @@ This was the most intensive phase, where I applied a **Medallion Architecture** 
 > 7. **Scope Enforcement:** Strictly filtered for the **2025 calendar year**.
 > 8. **Geographic Validation:** Verified Lat/Lng accuracy.
 
-### 4️⃣ Analyze `[In Progress]`
-* **Status:** Currently performing descriptive statistics in SQL.
-* **Focus:** Comparing mean ride lengths, identifying peak days, and station popularity per user group.
+### 4️⃣ Analyze (The Gold Layer) 
+In this final SQL stage, I transitioned from cleaning to **Aggregation**. I developed the **Gold Layer**, consisting of curated SQL Views designed for high-performance reporting in Python and Power BI.
 
-### 5️⃣ Share `[Upcoming]`
-* **Tool:** Tableau / Power BI.
-* **Goal:** Create interactive dashboards to visualize the "Why" behind the numbers.
+* **Statistical Robustness:** Instead of relying solely on Averages, I calculated the **Median** ride length using `PERCENTILE_CONT` to mitigate the influence of outliers.
+* **Spatial Optimization:** Performed a station popularity audit, specifically filtering out **"Remote"** and **"Test"** station artifacts to ensure marketing insights are based on real-world customer hotspots.
+* **Complex Aggregations:** Leveraged `CTE`s and `Window Functions` to calculate percentage shares and distribution metrics directly in the database.
+
+> #### 📊 Key Gold Views Created:
+> 1. **`v_User_Proportions`**: Market share breakdown (Member vs. Casual).
+> 2. **`v_Trip_Duration_Metrics`**: Comprehensive duration analysis (Mean, Median, Max, Min).
+> 3. **`v_Monthly_Trends`**: Seasonal usage patterns across the year.
+> 4. **`v_Weekly_Trends`**: Day-of-week usage comparison.
+> 5. **`v_Hourly_Trends`**: Hourly distribution and peak usage (Rush Hour).
+> 6. **`v_Top_Stations_Summary`**: The "Top 10" actionable locations for targeted advertisements.
+> 7. **`v_Bike_Preferences`**: Usage breakdown by equipment type (Classic vs. Electric).
+
+### 5️⃣ Share `[In Progress]`
+* **Status:** Transitioning to **Python (Pandas/Seaborn)** and **Power BI**.
+* **Focus:** * Conducting **Exploratory Data Analysis (EDA)** in Python to uncover hidden correlations.
+    * Designing an **Interactive Executive Dashboard** in Power BI to visualize the "Why" behind rider behaviors.
 
 ### 6️⃣ Act `[Upcoming]`
 * **Goal:** Providing final data-backed recommendations for the marketing team.
@@ -66,7 +79,9 @@ This was the most intensive phase, where I applied a **Medallion Architecture** 
 
 ## 🚀 Tech Stack
 * **Database:** MS SQL Server (T-SQL)
-* **Architecture:** Medallion (Bronze/Silver)
+* **Analysis:** Python (Pandas, Matplotlib, Seaborn)
+* **Visualization:** Power BI
+* **Architecture:** Medallion (Bronze/Silver/Gold)
 * **Methodology:** Google Data Analytics 6-Step Process
 
 ---
@@ -74,12 +89,13 @@ This was the most intensive phase, where I applied a **Medallion Architecture** 
 ## 📂 Repository Structure
 ```text
 ├── 📂 SQL-Scripts/
-│   ├── 01_Bronze_Layer_ETL.sql         # Data ingestion & consolidation
-│   └── 02_Silver_Layer.sql              # Cleaning, refactoring & audit
+│   ├── 01_Bronze_Layer_ETL.sql        # Data ingestion & consolidation
+│   ├── 02_Silver_Layer.sql             # Cleaning, refactoring & audit
+│   └── 03_Gold_Layer_Views.sql         # Business-ready aggregated views
 ├── 📂 Python-Analysis/
-│   └── 03_Exploratory_Analysis.ipynb    # Statistical analysis & deep dive
+│   └── 04_Exploratory_Analysis.ipynb    # Deep dive & advanced visualization
 ├── 📂 PowerBI-Dashboard/
-│   └── 04_Cyclistic_Dashboard.pbit     # Interactive visualization & insights
+│   └── 05_Cyclistic_Dashboard.pbix     # Interactive dashboard & final story
 ├── 📂 Documentation/
 │   └── Case_Study_Report.pdf           # Final business recommendations
 ├── 📄 .gitignore
