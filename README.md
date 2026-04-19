@@ -8,11 +8,19 @@ This project follows the **Google Data Analytics Professional Certificate** meth
 
 ---
 
-## 🛠 Why MS SQL Server?
-For a dataset of this magnitude (5.5M+ rows), Excel reaches its limits. I chose **T-SQL** because:
-* **Scalability:** Seamlessly managing millions of rows without performance lags.
-* **Data Integrity:** Strict enforcement of schemas and data types.
-* **Refactoring Power:** The ability to restructure and "clean on the fly" using complex migration scripts.
+## 🛠 Strategic Tech Stack: Why These Tools?
+To handle a dataset of this magnitude, I built a hybrid analytical pipeline. Each tool was selected for its specific strengths:
+
+* **MS SQL Server (T-SQL):**
+    * **Scalability:** Seamlessly managing 5.5M+ rows where Excel reaches its limits.
+    * **Data Integrity:** Strict enforcement of schemas through a Medallion Architecture (Bronze/Silver/Gold).
+    * **Refactoring Power:** Rebuilding tables and cleaning data "on the fly" using complex T-SQL migration scripts.
+* **Python (Pandas & Seaborn):**
+    * **Advanced Statistics:** Performing Exploratory Data Analysis (EDA) and calculating metrics like medians and correlations.
+    * **Visual Storytelling:** Creating high-fidelity statistical plots to identify patterns in trip duration.
+* **Power BI:**
+    * **Interactive Analytics:** Transforming static data into a dynamic environment for stakeholders.
+    * **AI Integration:** Utilizing built-in Machine Learning capabilities like **Key Influencers** and **Decomposition Trees** for automated insight discovery.
 
 ---
 
@@ -67,13 +75,16 @@ In this final SQL stage, I transitioned from cleaning to **Aggregation**. I deve
 > 6. **`v_Top_Stations_Summary`**: The "Top 10" actionable locations for targeted advertisements.
 > 7. **`v_Bike_Preferences`**: Usage breakdown by equipment type (Classic vs. Electric).
 
-### 5️⃣ Share `[In Progress]`
-* **Status:** Transitioning to **Python (Pandas/Seaborn)** and **Power BI**.
-* **Focus:** * Conducting **Exploratory Data Analysis (EDA)** in Python to uncover hidden correlations.
-    * Designing an **Interactive Executive Dashboard** in Power BI to visualize the "Why" behind rider behaviors.
+### 5️⃣ Share (The Dashboard & AI Phase)
+The analysis culminated in an interactive **Executive Dashboard** with a **Dark-Mode Neon UI**:
+* **User Segment Flow (Sankey):** Visualizing how volume vs. duration differs between segments.
+* **AI-Driven Key Influencers:** Used ML to identify that **Ride Hour** and **Duration** are the top predictors for membership.
+* **Decomposition Tree:** An AI-powered "Deep-Dive" visual allowing stakeholders to unfold data patterns from total rides down to specific hours.
 
-### 6️⃣ Act `[Upcoming]`
-* **Goal:** Providing final data-backed recommendations for the marketing team.
+### 6️⃣ Act (Strategic Recommendations)
+1.  **The "Commuter Bridge" Campaign:** Target casual riders exhibiting "Member-like" behavior (rush hour usage) with trial offers.
+2.  **Hotspot Marketing:** Leverage the **Top 10 Stations** data for hyper-local digital advertisements.
+3.  **Weekend Peak Optimization:** Introduce weekend-only passes to capture high-duration casual leisure riders.
 
 ---
 
