@@ -106,7 +106,9 @@ The analysis culminated in an interactive **Executive Dashboard** with a **Dark-
 ├── 📂 Python-Analysis/
 │   └── 04_Exploratory_Analysis.ipynb    # Deep dive & advanced visualization
 ├── 📂 PowerBI-Dashboard/
-│   └── 05_Cyclistic_Dashboard.pbix     # Interactive dashboard & final story
+│   ├── Operational Excellence Page.png
+│   ├── Geographical & Spatial Analysis Page.png
+│   └── Deep-Dive Behavior Page.png
 ├── 📂 Documentation/
 │   └── Case_Study_Report.pdf           # Final business recommendations
 ├── 📄 .gitignore
